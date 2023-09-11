@@ -606,7 +606,7 @@ class ClassGenerator extends AbstractGenerator implements TraitUsageInterface
      * @return static
      * @throws Exception\InvalidArgumentException
      */
-    public function addConstant($name, $value, bool $isFinal = false)
+    public function addConstant($name, $value, bool $isFinal = false, int $flags = PropertyGenerator::FLAG_PUBLIC)
     {
         if (empty($name) || ! is_string($name)) {
             throw new Exception\InvalidArgumentException(sprintf(
@@ -622,8 +622,8 @@ class ClassGenerator extends AbstractGenerator implements TraitUsageInterface
                 $name,
                 new PropertyValueGenerator($value),
                 $isFinal
-                    ? PropertyGenerator::FLAG_CONSTANT | PropertyGenerator::FLAG_FINAL
-                    : PropertyGenerator::FLAG_CONSTANT
+                    ? PropertyGenerator::FLAG_CONSTANT | PropertyGenerator::FLAG_FINAL | $flags
+                    : PropertyGenerator::FLAG_CONSTANT | $flags
             )
         );
     }

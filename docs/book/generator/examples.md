@@ -66,7 +66,7 @@ echo (new ClassGenerator())
         new PropertyGenerator('baz', 'bat', PropertyGenerator::FLAG_PUBLIC),
    ])
    ->addConstants([
-        new PropertyGenerator('bat', 'foobarbazbat', PropertyGenerator::FLAG_CONSTANT)
+        new PropertyGenerator('bat', 'foobarbazbat', true, PropertyGenerator::FLAG_PRIVATE)
     ]);
     ->generate();
 ```
@@ -125,7 +125,7 @@ echo (new ClassGenerator())
         new PropertyGenerator('baz', 'bat', PropertyGenerator::FLAG_PUBLIC),
     ])
     ->addConstants([
-        new PropertyGenerator('bat', 'foobarbazbat', PropertyGenerator::FLAG_CONSTANT)
+        new PropertyGenerator('bat', 'foobarbazbat', true, PropertyGenerator::FLAG_PRIVATE)
     ]);
     ->addMethods([
         // Method built programmatically
